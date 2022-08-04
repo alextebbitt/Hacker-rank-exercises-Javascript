@@ -311,8 +311,6 @@ console.log(plusMinus([0,5,4,-1]))
 function catAndMouse(x, y, z) {
     let catA = Math.abs(x - z);
     let catB = Math.abs(y - z);
-    console.log(catA)
-    console.log(catB)
     if(catA === catB) {
         return "Mouse C"
     }
@@ -326,3 +324,18 @@ function catAndMouse(x, y, z) {
 console.log(catAndMouse(1, 2, 3))
 console.log(catAndMouse(1, 3, 2))
 console.log(catAndMouse(5, 4, 6))
+
+
+function diagonalDifference(arr) {
+    let result = [0, 0]
+    for (let i = 0; i < arr.length; i++) {
+        let a = arr[i][0 + i],
+            b = arr[i][arr.length - 1 - i]
+        result = [result[0] + a, result[1] + b]
+    }
+    return Math.abs(result[0] - result[1])
+
+}
+
+
+console.log(diagonalDifference([[11,2,4,],[4,5,6,],[10,8,-12]]))
