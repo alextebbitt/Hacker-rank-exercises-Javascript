@@ -241,17 +241,17 @@ function gradingStudents(grades) {
 
 console.log(gradingStudents([38, 39, 40, 41, 42, 43, 44, 45]));
 
-function countApplesAndOranges (s, t, a, b, apples, oranges) {
-    let numberOfApples = 0; 
+function countApplesAndOranges(s, t, a, b, apples, oranges) {
+    let numberOfApples = 0;
     let numberOfOranges = 0;
-    for(let x of apples) {
+    for (let x of apples) {
         if ((a + x) >= s && (a + x) <= t) {
             numberOfApples = numberOfApples + 1
         }
     }
     for (let x of oranges) {
         if ((b + x) >= s && (b + x) <= t) {
-          numberOfOranges = numberOfOranges + 1
+            numberOfOranges = numberOfOranges + 1
         }
     }
     return `${numberOfApples}  ${numberOfOranges}`
@@ -266,15 +266,15 @@ function breakingRecords(scores) {
     let lowestScore = scores[1];
     let finalArray = []
     for (let i of scores)
-    if(i > highestScore) {
-        highestScore = i;
-        numberOfHighestScores++
-    } else {
-        if(i < lowestScore) {
-            lowestScore = i
-            numberOfLowestScores++
+        if (i > highestScore) {
+            highestScore = i;
+            numberOfHighestScores++
+        } else {
+            if (i < lowestScore) {
+                lowestScore = i
+                numberOfLowestScores++
+            }
         }
-    }
     finalArray.push(numberOfHighestScores);
     finalArray.push(numberOfLowestScores);
     return finalArray
@@ -290,31 +290,31 @@ function plusMinus(arr) {
     let negative = 0;
     let zero = 0;
     for (let num of arr)
-    if (num === 0) {
-        zero++
-    } else if (num > 0) {
-        positive++
-    } else {
-        negative++
-    }
+        if (num === 0) {
+            zero++
+        } else if (num > 0) {
+            positive++
+        } else {
+            negative++
+        }
     let resultPositive = (positive / total).toFixed(6)
     let resultNegative = (negative / total).toFixed(6)
     let resultZero = (zero / total).toFixed(6)
-    
+
 
     console.log(resultPositive)
     console.log(resultNegative)
     console.log(resultZero)
 }
-console.log(plusMinus([0,5,4,-1]))
+console.log(plusMinus([0, 5, 4, -1]))
 
 function catAndMouse(x, y, z) {
     let catA = Math.abs(x - z);
     let catB = Math.abs(y - z);
-    if(catA === catB) {
+    if (catA === catB) {
         return "Mouse C"
     }
-    else if( catA > catB) {
+    else if (catA > catB) {
         return "Cat B"
     } else {
         return "Cat A"
@@ -338,4 +338,33 @@ function diagonalDifference(arr) {
 }
 
 
-console.log(diagonalDifference([[11,2,4,],[4,5,6,],[10,8,-12]]))
+console.log(diagonalDifference([[11, 2, 4,], [4, 5, 6,], [10, 8, -12]]))
+
+
+function migratoryBirds(arr) {
+    let typeOne = 0;
+    let typeTwo = 0;
+    let typeThree = 0;
+    let typeFour = 0;
+    let typeFive = 0;
+    let types = [typeOne, typeTwo, typeThree, typeFour, typeFive]
+
+    for (let bird of arr) {
+        if (bird === 1) {
+            types[0]++
+        } else if (bird === 2) {
+            types[1]++
+        } else if (bird === 3) {
+            types[2]++
+        } else if (bird === 4) {
+            types[3]++
+        } else {
+            types[4]++
+        }
+    }
+
+    let mode = types.indexOf((Math.max(...types)))
+    return mode + 1
+}
+
+console.log(migratoryBirds([1, 4, 4, 4, 5, 3,]))
